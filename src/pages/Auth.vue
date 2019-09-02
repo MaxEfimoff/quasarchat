@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex ">
-    <h5>Chat page</h5>
+    <h5>Auth page</h5>
   </q-page>
 </template>
 
