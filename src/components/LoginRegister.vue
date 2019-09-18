@@ -4,11 +4,11 @@
       <q-input
         v-if="tab == 'register'"
         outlined
-        v-model="text"
+        v-model="formData.name"
         label="Name" />
       <q-input
         outlined
-        v-model="text"
+        v-model="formData.email"
         label="Email"
       />
       </div>
@@ -40,14 +40,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: ['tab'],
   methods: {
+    ...mapActions('store', ['registerUser', 'loginUser']),
     submitForm() {
       if (this.tab == 'login') {
-        console.log('login the user')
+        this.loginUser(this.formData);
       } else {
-        console.log('register the user')
+        this.registerUser(this.formData);
       }
     }
   },
